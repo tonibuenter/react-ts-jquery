@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {button} from "./app-ui";
+import $ from 'jquery'
 
 function App() {
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App" style={{padding: '4em'}}>
+        <header className="App-header">
+          <p>
+            Welcome to: react ts jquery
+          </p>
+          <div ref={(ref: HTMLInputElement) => {
+            if (ref) {
+              $(ref).empty();
+              const dom = jqueryApp().get(0);
+              if (dom) {
+                ref.append(dom)
+              }
+            }
+          }}/>
+
+        </header>
+      </div>
   );
 }
 
 export default App;
+
+function jqueryApp(): JQuery<HTMLElement> {
+  return $('<div>').css({
+    border: '1px dashed gray',
+    padding: '1em'
+  }).append($('<h3>').text('JQuery Successfully Started!'), button('Click Me Quick', () => alert('Good boy, you clicked me!')));
+}
