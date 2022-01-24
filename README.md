@@ -1,6 +1,7 @@
 # react-ts-jquery
 
-Template for using React with TypeScript and Jquery.
+This is a simmple template for using React under TypeScript and Jquery components.
+
 
 This project was created by:
 
